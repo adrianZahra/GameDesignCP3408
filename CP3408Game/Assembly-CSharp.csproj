@@ -47,7 +47,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Helicopter\HelicopterMovement.cs" />
+     <Compile Include="Assets\Scripts\Helicopter\RotatePropellerMain.cs" />
+     <Compile Include="Assets\Scripts\Helicopter\RotatePropellerRear.cs" />
+     <Compile Include="Assets\Scripts\Managers\GameDataClass.cs" />
+     <Compile Include="Assets\Scripts\Missiles\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerMovement (X and Y axis only)\playerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
@@ -131,7 +137,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/moggj_000/Documents/GitHub/GameDesignCP3408/CP3408Game/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/Users/moggj_000/Documents/ScrewGithub/GameDesignCP3408/CP3408Game/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
