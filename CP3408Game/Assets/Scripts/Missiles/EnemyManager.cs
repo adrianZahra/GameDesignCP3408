@@ -19,14 +19,14 @@ public class EnemyManager : MonoBehaviour
     {
         InvokeRepeating("SpawnSmallMissle", spawnTime, spawnTime);
 
-        if(roundNumberTemp == 5) // <-- get the number of rounds
+        if(roundNumberTemp == 5 || roundNumberTemp < 10) // <-- get the number of rounds
         {
             InvokeRepeating("SpawnMediumMissle", spawnTime, spawnTime);
         }
-
-        if(roundNumberTemp == 10)
+        else if(roundNumberTemp == 10 || roundNumberTemp > 10)
         {
-            InvokeRepeating("SpawnMissle", spawnTime, spawnTime);
+            InvokeRepeating("SpawnMediumMissle", spawnTime, spawnTime);
+            InvokeRepeating("SpawnLargeMissle", spawnTime, spawnTime);
         }
 
     }
