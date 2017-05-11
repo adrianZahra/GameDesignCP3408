@@ -99,6 +99,7 @@
      <Compile Include="Assets\Scripts\Helicopter\RotatePropellerRear.cs" />
      <Compile Include="Assets\Scripts\Managers\GameDataClass.cs" />
      <Compile Include="Assets\Scripts\Missiles\EnemyManager.cs" />
+     <Compile Include="Assets\Scripts\Missiles\MoveMissleSpawn.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement (X and Y axis only)\playerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
