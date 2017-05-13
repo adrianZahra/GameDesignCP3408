@@ -101,8 +101,8 @@
      <Compile Include="Assets\Scripts\Missiles\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\Missiles\MoveMissleSpawn.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerMovement (X and Y axis only)\playerMovement.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Player\playerMovementxy.cs" />
      <None Include="Assets\1Need to organise\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\1Need to organise\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\1Need to organise\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />

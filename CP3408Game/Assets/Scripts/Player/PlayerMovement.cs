@@ -3,58 +3,86 @@
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 6f;
-
+    
+    //movement
     Vector3 movement;
     Animator anim;
     Rigidbody playerRigidbody;
-    int floorMask;
+    
     float camRayLength = 100f;
+    
+    bool facingRight;
+
+    //jumping
+    bool grounded = false;
+    Collider[] groundCollisions;
+    float groundCheckRadius = 0.2f;
+    public LayerMask groundLayer;
+    public Transform groundCheck;
+    public float jumpHeight;
 
     void Awake()
     {
-        floorMask = LayerMask.GetMask("Floor");
         anim = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
+        facingRight = true;
+    }
+
+    void Update()
+    {
+        
     }
 
     void FixedUpdate()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        if(grounded && Input.GetAxis("Jump") > 0)
+        {
+            grounded = false;
+            anim.SetBool("grounded", grounded);
+            playerRigidbody.AddForce(new Vector3(0, jumpHeight, 0));
+        }
 
-        Move(h, v);
-        Turning();
-        Animating(h, v);
+        groundCollisions = Physics.OverlapSphere(groundCheck.position, groundCheckRadius, groundLayer);
+        if (groundCollisions.Length > 0) grounded = true;
+        else grounded = false;
+
+        anim.SetBool("grounded", grounded);
+
+        float h = Input.GetAxisRaw("Horizontal");
+        //float v = Input.GetAxisRaw("Vertical");
+
+        Move(h);
+
+        if (h > 0 && !facingRight)
+            Flip();
+        else if (h < 0 && facingRight)
+            Flip();
+
+        Animating(h);
+
+        
     }
 
-    void Move(float h, float v)
+    void Move(float h)
     {
-        movement.Set(h, 0f, v);
+        movement.Set(h, 0f, 0f);
 
         movement = movement.normalized * speed * Time.deltaTime;
 
         playerRigidbody.MovePosition(transform.position + movement);
     }
 
-    void Turning()
+    void Flip()
     {
-        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        RaycastHit floorHit;
-
-        if (Physics.Raycast(camRay, out floorHit, camRayLength, floorMask))
-        {
-            Vector3 playerToMouse = floorHit.point - transform.position;
-            playerToMouse.y = 0f;
-
-            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
-            playerRigidbody.MoveRotation(newRotation);
-        }
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.z *= -1;
+        transform.localScale = theScale;
     }
 
-    void Animating(float h, float v)
+    void Animating(float h)
     {
-        bool walking = h != 0f || v != 0f;
+        bool walking = h != 0f;
         anim.SetBool("IsWalking", walking);
     }
 }
