@@ -16,7 +16,7 @@ public class MoveMissleSpawn : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        MissleSpawnPoint.transform.position = new Vector3(Player.transform.position.x, 10, Player.transform.position.z); //moves spawn point acodingly to the players position
+        MissleSpawnPoint.transform.position = new Vector3(Random.Range(Player.transform.position.x + 10, Player.transform.position.x - 10), 20, Player.transform.position.z); //moves spawn point acodingly to the players position
 
     }
     // Use this for initialization
@@ -25,3 +25,5 @@ public class MoveMissleSpawn : MonoBehaviour {
 	}
 
 }
+
+//Random.Range(Player.transform.position.x + 10, Player.transform.position.x - 10)

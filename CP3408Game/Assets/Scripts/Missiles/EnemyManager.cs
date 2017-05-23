@@ -6,27 +6,29 @@ public class EnemyManager : MonoBehaviour
 {
     //public PlayerHealth playerHealth;
     //public GameDataClass _gameDataClass;
-    public float playerHealthTemp = 10f;
-    public int roundNumberTemp = 11;
+    float playerHealthTemp = 5f;
+    int roundNumberTemp = 10;
     public GameObject enemySmall;
     public GameObject enemyMedium;
     public GameObject enemyLarge;
-    public float spawnTime = 3f;
+    float smallSpawnTime = 1f;
+    float mediumSpawnTime = 5f;
+    float largeSpawnTime = 9f;
     public Transform[] spawnPoints;
 
     
     void Start()
     {
-        InvokeRepeating("SpawnSmallMissle", spawnTime, spawnTime);
+        InvokeRepeating("SpawnSmallMissle", smallSpawnTime, smallSpawnTime);
 
-        if(roundNumberTemp == 5 || roundNumberTemp < 10) // <-- get the number of rounds
+        if(roundNumberTemp >= 5 && roundNumberTemp < 10) // <-- get the number of rounds
         {
-            InvokeRepeating("SpawnMediumMissle", spawnTime, spawnTime);
+            InvokeRepeating("SpawnMediumMissle", mediumSpawnTime, mediumSpawnTime);
         }
-        else if(roundNumberTemp == 10 || roundNumberTemp > 10)
+        else if(roundNumberTemp >= 10)
         {
-            InvokeRepeating("SpawnMediumMissle", spawnTime, spawnTime);
-            InvokeRepeating("SpawnLargeMissle", spawnTime, spawnTime);
+            InvokeRepeating("SpawnMediumMissle", mediumSpawnTime, mediumSpawnTime);
+            InvokeRepeating("SpawnLargeMissle", largeSpawnTime, largeSpawnTime);
         }
 
     }
