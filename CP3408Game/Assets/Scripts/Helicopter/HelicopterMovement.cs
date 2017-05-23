@@ -39,11 +39,10 @@ public class HelicopterMovement : MonoBehaviour {
         bool close = Close();
         bool atPlayer = AtPlayer();
 
-        if (player.position.x > transform.position.x)
+        if (player.position.x > transform.position.x) // If the player is to the right of the helicopter
         {
-            Debug.Log("TRUE");
             rb.AddForce(rightVector * speed);
-        } else if (player.position.x < transform.position.x)
+        } else if (player.position.x < transform.position.x) // If the player is to the left of the helicopter
         {
             rb.AddForce(leftVector * speed);
         }
